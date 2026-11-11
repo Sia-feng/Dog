@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7f2">
+  <meta name="description" content="刷子小窝 ·AI小狗">
+  <title>刷子的小窝</title>
+  <link rel="icon" href="assets/paw.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="live.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#home"><span class="brand-mark" data-icon="paw"></span><span>刷子的窝<small>SHUAZI'S LITTLE WORLD</small></span></a>
+    <div class="nav-label"></div>
+    <nav class="navigation" aria-label="主要导航">
+      <button data-page="home" class="nav-item active"><span data-icon="home"></span><span>小窝</span><i></i></button>
+      <button data-page="chat" class="nav-item"><span data-icon="chat"></span><span>聊五毛钱的</span><i></i></button>
+      <button data-page="voice" class="nav-item"><span data-icon="mic"></span><span>学声音</span><i></i></button>
+      <button data-page="persona" class="nav-item"><span data-icon="sliders"></span><span>调教</span><i></i></button>
+      </nav>
+    <div class="sidebar-note"><span data-icon="heart"></span><p>Hi<br></p><span class="handwritten">always by your side</span></div>
+    <button class="sidebar-profile" data-action="settings"><img src="assets/shuazi.png" alt="刷子头像"><span>刷子<small>本地 Demo · v1.0</small></span><span data-icon="settings"></span></button>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span class="breadcrumb"> <span>/</span> <strong id="page-title">小窝</strong></span><div class="top-actions"><span class="connection" id="connection"><i></i>正在连接</span><button class="icon-button" data-action="settings" aria-label="设置与隐私"><span data-icon="settings"></span></button></div></header>
+    <main id="main-content">
+      <section id="page-home" class="page active">
+        <div class="page-heading"><div><p class="eyebrow"></p><h1>汪！主人！可恶居然不是漂亮<span id="home-nickname"></span><span class="greeting-dot">。</span></h1><p class="subtitle">不出意外刷子会一直在这个屏幕里 除非你去线下看本汪</p></div><span class="date-pill" id="today"></span></div>
+        <div class="home-grid">
+          <div class="home-main">
+            <article class="hero-card">
+              <img class="hero-photo" src="assets/shuazi-home-src.png" alt="白色狗狗刷子，戴着黄色领巾看向镜头">
+              <video class="hero-video" src="assets/shuazi-home.mp4" autoplay muted loop playsinline preload="metadata" aria-label="刷子轻轻歪头、对着镜头自然开合嘴部打招呼的短视频，口型为近似动作、非逐字对口型"></video>
+              <div class="hero-shade"></div><span class="hero-status"><i></i>狗已就位</span>
+              <div class="hero-copy"><div class="hello">Hi我是刷子</div><h2>你的小狗<br></h2><p>有你的声音<br>和你的性格</p><button class="primary" data-action="go-chat">和刷子说说话 <span data-icon="arrow"></span></button></div>
+              <div class="photo-caption"><span data-icon="heart"></span></div>
+            </article>
+          </div>
+          <aside class="home-side">
+            <article class="card personality-card"><div class="section-heading"><h3>刷子的性格</h3><button class="text-link" data-action="go-persona">调教 <span data-icon="arrow"></span></button></div><div class="mini-profile"><img src="assets/shuazi.png" alt="刷子"><div><strong>刷子 <span>SHUAZI</span></strong><small id="persona-summary">我是嘴毒心软</small></div></div><div class="trait"><span>温柔值</span><meter id="meter-warmth" min="0" max="100" value="55"></meter><b id="value-warmth">55</b></div><div class="trait"><span>调皮值</span><meter id="meter-playful" min="0" max="100" value="90"></meter><b id="value-playful">90</b></div><div class="trait"><span>黏人值</span><meter id="meter-clingy" min="0" max="100" value="35"></meter><b id="value-clingy">35</b></div><div class="soft-note">“你来调教我”</div></article>
+          </aside>
+        </div>
+        <footer class="page-footer"><span data-icon="paw"></span> 汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪！<span class="footer-tag">AI_Gog</span></footer>
+      </section>
+      <section id="page-chat" class="page">
+        <div class="live-stage" id="live-stage" data-state="idle">
+          <div class="live-backdrop" aria-hidden="true"></div>
+          <canvas id="dog-canvas" width="780" height="1236" role="img" aria-label="刷子讲话时嘴部随语音做形变"></canvas>
+          <video id="dog-idle-video" muted loop playsinline preload="metadata" aria-label="意思意思嘴巴动动得了 拟人要花钱 咱就是说经费不足" hidden></video>
+          <button id="idle-toggle" class="idle-toggle" aria-pressed="false" hidden>暂停待机动作</button>
+          <div class="live-shade" aria-hidden="true"></div>
+          <header class="live-header"><button class="live-icon" data-action="go-home" aria-label="回到小窝">←</button><div class="live-identity"><h1>刷子<span>SHUAZI</span></h1><p id="chat-persona-tag">温柔治愈</p></div><button class="live-icon" data-action="settings" aria-label="语音设置与隐私"><span data-icon="settings"></span></button></header>
+          <div class="live-top-note"><span class="live-dot"></span><span id="chat-mode">正在检查Kimi这个笨蛋大模型</span></div>
+          <div class="live-caption-area"><div class="live-presence"><span class="presence-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span id="live-state" role="status">耳朵已就位</span></div><p id="live-caption" class="live-caption" aria-live="polite"><br></p><p id="live-error" class="live-error" role="alert" hidden></p></div>
+          <div class="live-controls"><button id="live-replay" class="live-side-button" aria-label="重听上一句"><span data-icon="speaker"></span><span>重听</span></button><button id="live-mic" class="live-mic" aria-label="开始语音说话"><span data-icon="mic"></span></button><button id="live-stop" class="live-side-button" aria-label="打断刷子"><span class="stop-symbol"></span><span>打断</span></button></div>
+          <form id="live-compose" class="live-compose" hidden><input id="live-text" type="text" maxlength="4000" autocomplete="off" placeholder="打字告诉刷子，回车发送…"><button type="submit" id="live-send">发送</button></form>
+          <p class="live-control-hint" id="live-control-hint">摁住 说话</p>
+          <div class="live-tools"><button id="live-type" aria-pressed="false">打字</button><button id="live-greeting">刷子开口</button><button id="live-sample">音色克隆还没做出来别点</button><button id="live-feedback">调教刷子</button><button id="live-subtitles" aria-pressed="true">字幕打开老人家耳朵不好</button><button data-action="clear-chat">点击忘掉之前对话出场设置小狗</button></div>
+          <p class="live-disclosure" id="live-sync">意思意思嘴巴动动得了 拟人要花钱 咱就是说经费不足</p>
+        </div>
+      </section>
+      <section id="page-voice" class="page">
+        <div class="page-heading"><div><p class="eyebrow"></p><h1>你的声音</h1><p class="subtitle">录下你成为刷子的声音</p></div><span class="tag amber">音色克隆待接入</span></div>
+        <div class="voice-layout"><article class="card recording-card"><div class="steps"><span class="selected">01 录下声音</span><span>02 保存试听</span><span>03 接入克隆</span></div><div class="record-art"><span class="record-ring"></span><span class="record-symbol" data-icon="mic"></span></div><h2 id="record-title">这是我的声音</h2><p class="muted">找一个安静的角落，用平时的语气读一读。</p><blockquote>“不管外面的世界多忙，刷子都在这让你更忙”</blockquote><div class="waveform" id="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div id="record-time" class="record-time">00:00 / 01:00</div><label class="consent"><input id="voice-consent" type="checkbox">这是我本人或我已获授权使用的声音</label><button class="primary" id="record-button"><span data-icon="mic"></span> 开始录音</button><label class="upload-link">或选择已有录音 <input id="audio-upload" type="file" accept="audio/*" hidden></label><p class="microcopy">最多录制 60 秒 · 文件不超过 15 MB · 仅保存在当前浏览器</p><div id="record-error" class="error-message" role="alert" hidden></div></article><div class="voice-side"><article class="card"><div class="section-heading"><h3>我的声音样本</h3><span data-icon="wave"></span></div><div id="sample-empty" class="empty-small">还没有录音。<br>把第一句“你好”留在这里吧。</div><div id="sample-player" hidden><p id="sample-info"></p><audio id="audio-player" controls preload="metadata"></audio><div class="sample-actions"><a id="download-audio" class="text-link" download="shuazi-voice.webm">下载备份</a><button id="delete-audio" class="text-link danger">删除样本</button></div></div></article><article class="card voice-explain"><span class="tag">诚实的小提示</span><h3>录音 ≠ 声音克隆</h3><p>这个 Demo 已实现录音、保存和试听。让刷子用你的音色说出新句子，还需要独立的声音克隆服务。</p><div class="service-row"><span>Kimi</span><b>负责想说什么</b></div><div class="service-row"><span>声音克隆服务</span><b>负责用谁的声音说</b></div><p class="microcopy">聊天里的「系统朗读」只是设备自带语音，不是你的音色。录音不会发送给 Kimi。</p></article><article class="card clone-card"><div class="section-heading"><h3>克隆我的音色</h3><span data-icon="wave"></span></div><p id="clone-status" class="muted">先保存一段清晰录音，再生成你的专属音色。</p><button class="primary" id="clone-button">用这段录音克隆我的声音</button><button class="text-link" id="clone-refresh">检查训练状态</button><p class="microcopy">录音会上传到火山引擎声音复刻服务训练，属不可逆云端处理。建议上传 15~60 秒清晰 WAV / MP3；浏览器直接录制的 WEBM 可能不被支持。训练完成后，聊天页的刷子会用你的声音说话，并实时驱动嘴部。</p></article></div></div>
+      </section>
+      <section id="page-persona" class="page">
+        <div class="page-heading"><div><p class="eyebrow">ONE OF A KIND, JUST LIKE YOU</p><h1>小狗随主</h1><p class="subtitle"></p></div></div>
+        <form id="persona-form" class="persona-layout"><div class="card persona-form"><label class="field-label" for="nickname">刷子怎么称呼您老</label><input id="nickname" maxlength="20" placeholder="比如：主人、姐姐、你的昵称" required><label class="field-label">选一个性格底色</label><div class="style-options"><button type="button" data-style="毒舌机智">🌶 <strong>毒舌机智</strong><small>嘴毒心软，一针见血</small></button><button type="button" data-style="温柔治愈">☁ <strong>温柔治愈</strong><small>先接住你的情绪</small></button><button type="button" data-style="调皮话痨">✦ <strong>调皮话痨</strong><small>有一点古灵精怪</small></button><button type="button" data-style="傲娇可爱">♡ <strong>傲娇可爱</strong><small>嘴硬，但心软软</small></button><button type="button" data-style="安静陪伴">☾ <strong>安静陪伴</strong><small>不多说，也懂你</small></button></div><div class="slider-field"><label for="warmth">温柔值 <output id="warmth-output">88</output></label><input type="range" id="warmth" min="0" max="100" value="88"><div><span>直来直往</span><span>温柔接住</span></div></div><div class="slider-field"><label for="playful">调皮值 <output id="playful-output">62</output></label><input type="range" id="playful" min="0" max="100" value="62"><div><span>稳稳当当</span><span>古灵精怪</span></div></div><div class="slider-field"><label for="clingy">黏人值 <output id="clingy-output">75</output></label><input type="range" id="clingy" min="0" max="100" value="75"><div><span>留点空间</span><span>想要贴贴</span></div></div><label class="field-label" for="instructions">还有什么想教给刷子的？</label><textarea id="instructions" rows="4" maxlength="1000" placeholder="比如：我难过时先安慰，不要马上讲道理；回答短一点。"></textarea><button class="primary" type="submit">保存性格 <span data-icon="heart"></span></button></div><aside><article class="card persona-preview"><img src="assets/shuazi.png" alt="刷子"><span class="eyebrow">YOUR LITTLE COMPANION</span><h2>刷子</h2><span class="tag" id="preview-style">毒舌机智</span><blockquote id="persona-preview">“就这点事也值得慌？坐下，主人，我两句给你捋明白。”</blockquote><p class="microcopy">这是性格示意文案，不是模型生成。<br>保存后，下一条真实回复开始生效。</p></article><article class="card feedback-card"><h3>我们一起学过的事</h3><div id="feedback-list"></div><p class="microcopy">聊天时点击「调教这句」添加偏好。偏好会加入后续对话提示，不会重新训练模型。</p></article></aside></form>
+      </section>
+      <section id="page-memories" class="page"><div class="page-heading"><div><p class="eyebrow">SMALL THINGS, BIG FEELINGS</p><h1>小狗的记忆小本本</h1><p class="subtitle">记不住的写下来允许你忘掉</p></div><span class="tag" id="memory-count">0 / 20 条</span></div><div class="memory-layout"><article class="card"><h3>记住</h3><form id="memory-form"><label class="sr-only" for="memory-input">添加记忆</label><textarea id="memory-input" rows="4" maxlength="300" placeholder="比如：我不开心的时候，喜欢先被安静地陪一会儿。" required></textarea><button class="primary" type="submit">记在小本本里 <span data-icon="book"></span></button></form><p class="microcopy">记忆保存在当前浏览器。开启 Kimi 时，已保存记忆会随聊天发送，用于个性化回应。</p></article><div id="memory-list" class="memory-list"></div></div></section>
+    </main>
+  </div>
+  <dialog id="settings-dialog"><div class="dialog-heading"><h2>小窝设置</h2><button class="icon-button" data-close="settings-dialog" aria-label="关闭设置">×</button></div><div class="setting-status" id="backend-status">正在检查后端…</div><label class="switch-row"><span><strong>使用真实 Kimi 对话</strong><small>关闭后使用本地预设演示回复</small></span><input id="kimi-toggle" type="checkbox" role="switch"></label><p class="microcopy">开启后，你发送的文字、最近 20 条对话、性格和记忆将发送给 Kimi。录音不会上传。密钥只保存在本机后端。</p><div class="setting-status" id="voice-pack-row"><label for="voice-pack"><strong>刷子的声音</strong></label><select id="voice-pack"><option value="system">系统免费音色（默认）</option><option value="playful">调皮小鬼（火山）</option><option value="clone">我的声音（克隆）</option></select></div><p class="microcopy">「系统免费音色」用设备自带语音，零成本、立即可用。「调皮小鬼/我的声音」需配置火山语音并开通后才可用；它们不是任何具体卡通角色或其配音演员的声音。</p><div class="privacy-box"><strong>这里的数据，由你决定</strong><p>聊天、性格、记忆和录音仅保存在当前浏览器；换浏览器或清除网站数据后可能丢失。本 Demo 没有云同步、账号或正式上线。</p></div><button class="secondary danger" id="reset-data">清除本机全部个人数据</button></dialog>
+  <dialog id="feedback-dialog"><div class="dialog-heading"><h2>教刷子做狗</h2><button class="icon-button" data-close="feedback-dialog" aria-label="关闭调教">×</button></div><p class="muted">把你喜欢的回答方式告诉我 我下次装一下</p><form id="feedback-form"><label for="feedback-input" class="field-label">你希望我咋滴改？</label><textarea id="feedback-input" rows="4" maxlength="300" required placeholder="比如：少问问题，先抱抱我；不要叫我宝贝。"></textarea><button class="primary" type="submit">记住这个偏好</button></form></dialog>
+  <dialog id="confirm-dialog"><h2 id="confirm-title">确认操作</h2><p id="confirm-text"></p><div class="dialog-actions"><button class="secondary" id="confirm-cancel">取消</button><button class="primary" id="confirm-ok">确认</button></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.env
+*.log
+node_modules/
+.seedance/
+cloudflared.exe
+cloudflared*.log
